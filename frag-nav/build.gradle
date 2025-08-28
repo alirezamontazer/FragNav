@@ -231,3 +231,16 @@ artifacts {
 //    }.writeTo("$buildDir/poms/pom-default.xml").writeTo("pom.xml")
 //}
 //build.dependsOn createPom
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.alirezamontazer'
+                artifactId = 'FragNav'
+                version = 'v3.3.2'
+            }
+        }
+    }
+}
